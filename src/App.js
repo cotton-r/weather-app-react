@@ -23,7 +23,7 @@ function App() {
     <div className="app">
       <div className='search'>
         <input
-        value={location}
+          value={location}
           className='input'
           type="text"
           onChange={event => setLocation(event.target.value)}
@@ -34,26 +34,26 @@ function App() {
       <div className='container'>
         <div className='top'>
           <div className='location'>
-            <p>{data.name}</p>
+            <p>{data.name}, {data.sys.country}</p>
           </div>
           <div className='temp'>
-            <h1>18°C</h1>
+            <h1>{data.main ? ((data.main.temp - 32) * 5/9).toFixed(0) : null}°C</h1>
           </div>
           <div className='description'>
-            <p>Clouds</p>
+            <p>{data.main ? data.weather[0].main : null}</p>
           </div>
         </div>
         <div className='bottom'>
           <div className='feels'>
-            <p className='bold'>21°C</p>
+            <p className='bold'>{data.main ? ((data.main.feels_like - 32) * 5/9).toFixed(0) : null}°C</p>
             <p className='sub-desc'>Feels Like</p>
           </div>
           <div className='humidity'>
-            <p className='bold'>20%</p>
+            <p className='bold'>{data.main ? data.main.humidity : null}%</p>
             <p className='sub-desc'>Humidity</p>
           </div>
           <div className='wind'>
-            <p className='bold'>12 MPH</p>
+            <p className='bold'>{data.main ? data.wind.speed.toFixed(1) : null} MPH</p>
             <p className='sub-desc'>Wind Speed</p>
           </div>
         </div>
