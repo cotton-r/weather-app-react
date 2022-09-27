@@ -12,7 +12,7 @@ function App() {
   const searchLocation = (event) => {
     if (event.key === 'Enter') {
       axios.get(url).then((response) => {
-        setLocation(response.data)
+        setData(response.data)
         console.log(response.data)
       })
       setLocation('');
@@ -23,6 +23,7 @@ function App() {
     <div className="app">
       <div className='search'>
         <input
+        value={location}
           className='input'
           type="text"
           onChange={event => setLocation(event.target.value)}
@@ -33,7 +34,7 @@ function App() {
       <div className='container'>
         <div className='top'>
           <div className='location'>
-            <p>Bristol</p>
+            <p>{data.name}</p>
           </div>
           <div className='temp'>
             <h1>18°C</h1>
