@@ -12,7 +12,7 @@ function App() {
   const searchLocation = (event) => {
     if (event.key === 'Enter') {
       axios.get(url).then((response) => {
-        setImmediate(response.data)
+        setLocation(response.data)
         console.log(response.data)
       })
     }
@@ -22,8 +22,7 @@ function App() {
     <div className="app">
       <div className='search'>
         <input
-        className='input'
-          value={location}
+          className='input'
           type="text"
           onChange={event => setLocation(event.target.value)}
           placeholder="Enter Location"
