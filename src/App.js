@@ -15,6 +15,7 @@ function App() {
         setLocation(response.data)
         console.log(response.data)
       })
+      setLocation('');
     }
   };
 
